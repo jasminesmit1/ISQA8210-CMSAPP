@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h3 class="text-muted mb-3">{{client.name}}'s Comments</h3>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th>Date</th>
+            <th>Comment</th>
+            <th>Author</th>
+        </tr>
+        </thead>
+        {% for comment in comments %}
+          <tr>
+             <td>{{ comment.date }}</td>
+              <td>{{ comment.comment }}</td>
+              <td>{{comment.author}}</td>
+          </tr>
+        {% endfor %}
+    </table>
+    <p>Back to <a href="{% url 'client_list' %}">All Clients</a>.</p>
+    <button class="btn-btn-info"><a href="{% url 'add_comment' client.pk %}">Add Comment</a></button>
+
+{% endblock  %}

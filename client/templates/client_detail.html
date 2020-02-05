@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="client-entry">
+  <h2>{{ object.name }}</h2>
+    <p>by {{ object.author }} | {{ object.date }}</p>
+    <p>{{ object.notes }}</p>
+  </div>
+
+  <button class="bg-info mb-2"><a href="{% url 'client_edit' client.pk %}" class="text-white">Edit</a></button>
+  <button class="bg-info"><a href="{% url 'client_delete' client.pk %}" class="text-white">Delete</a></button>
+  <p>Back to <a href="{% url 'client_list' %}">All Clients</a>.</p>
+{% endblock content %}
+
